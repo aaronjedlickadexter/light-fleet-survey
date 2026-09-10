@@ -212,6 +212,14 @@
       resize: vertical;
     }
 
+    #safetyIssuesDetailsField {
+      margin: -8px 0 28px;
+    }
+
+    #safetyIssuesDetailsField[hidden] {
+      display: none;
+    }
+
     .photos {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -644,20 +652,6 @@
           </div>
 
           <div class="field">
-            <label for="unitNumber">
-              Unit or asset number
-              <span class="small">Optional</span>
-            </label>
-
-            <input
-              id="unitNumber"
-              name="unitNumber"
-              type="text"
-              placeholder="Company unit number, if assigned"
-            >
-          </div>
-
-          <div class="field">
             <label for="vehicleYear">
               Vehicle year <span class="required">*</span>
             </label>
@@ -800,7 +794,7 @@
 
         <fieldset>
           <legend>
-            Do you have a current driver handbook?
+            Do you have a current copy of the Hartford accident kit?
             <span class="required">*</span>
           </legend>
 
@@ -808,7 +802,7 @@
             <label class="choice">
               <input
                 type="radio"
-                name="handbook"
+                name="hartfordAccidentKit"
                 value="Yes"
                 required
               >
@@ -818,7 +812,7 @@
             <label class="choice">
               <input
                 type="radio"
-                name="handbook"
+                name="hartfordAccidentKit"
                 value="No"
               >
               No
@@ -827,7 +821,7 @@
             <label class="choice">
               <input
                 type="radio"
-                name="handbook"
+                name="hartfordAccidentKit"
                 value="Not sure"
               >
               Not sure
@@ -837,7 +831,7 @@
 
         <fieldset>
           <legend>
-            Would you be opposed to a Samsara front-facing camera with no audio?
+            Are there any safety or mechanical issues with your vehicle we should know about?
             <span class="required">*</span>
           </legend>
 
@@ -845,26 +839,72 @@
             <label class="choice">
               <input
                 type="radio"
-                name="cameraOpposition"
-                value="No - would not be opposed"
+                name="safetyIssues"
+                value="Yes"
                 required
               >
-              No — I would not be opposed
+              Yes
             </label>
 
             <label class="choice">
               <input
                 type="radio"
-                name="cameraOpposition"
-                value="Yes - would be opposed"
+                name="safetyIssues"
+                value="No"
               >
-              Yes — I would be opposed
+              No
+            </label>
+          </div>
+        </fieldset>
+
+        <div
+          class="field"
+          id="safetyIssuesDetailsField"
+          hidden
+        >
+          <label for="safetyIssuesDetails">
+            Please describe the safety or mechanical issue(s)
+            <span class="required">*</span>
+          </label>
+
+          <textarea
+            id="safetyIssuesDetails"
+            name="safetyIssuesDetails"
+            rows="4"
+            placeholder="Describe the issue, warning light, noise, damage, or other concern"
+          ></textarea>
+        </div>
+
+        <fieldset>
+          <legend>
+            Do you agree to have front-facing Samsara cameras in your company vehicle?
+            <span class="required">*</span>
+          </legend>
+
+          <div class="choices">
+            <label class="choice">
+              <input
+                type="radio"
+                name="cameraAgreement"
+                value="Yes"
+                required
+              >
+              Yes
             </label>
 
             <label class="choice">
               <input
                 type="radio"
-                name="cameraOpposition"
+                name="cameraAgreement"
+                value="No"
+              >
+              No
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="cameraAgreement"
                 value="Need more information"
               >
               I need more information
@@ -912,6 +952,7 @@
     <section id="complete" class="complete">
       <div class="complete-check">✓</div>
       <div class="eyebrow">Draft validated</div>
+
       <h2>Ready to connect.</h2>
 
       <p>
@@ -1040,13 +1081,40 @@
       });
     });
 
+    const safetyIssuesDetailsField =
+      document.getElementById("safetyIssuesDetailsField");
+
+    const safetyIssuesDetails =
+      document.getElementById("safetyIssuesDetails");
+
+    document
+      .querySelectorAll('input[name="safetyIssues"]')
+      .forEach(input => {
+        input.addEventListener("change", event => {
+          const detailsAreRequired =
+            event.target.value === "Yes";
+
+          safetyIssuesDetailsField.hidden =
+            !detailsAreRequired;
+
+          safetyIssuesDetails.required =
+            detailsAreRequired;
+
+          if (!detailsAreRequired) {
+            safetyIssuesDetails.value = "";
+          }
+        });
+      });
+
     document
       .getElementById("survey")
       .addEventListener("submit", async event => {
         event.preventDefault();
 
         const form = event.currentTarget;
-        const button = document.getElementById("submitButton");
+        const button =
+          document.getElementById("submitButton");
+
         const statusMessage =
           document.getElementById("statusMessage");
 
@@ -1075,14 +1143,19 @@
             )
           ]);
 
-          const selectedHandbook =
+          const selectedHartfordAccidentKit =
             document.querySelector(
-              'input[name="handbook"]:checked'
+              'input[name="hartfordAccidentKit"]:checked'
             );
 
-          const selectedCameraOpposition =
+          const selectedSafetyIssues =
             document.querySelector(
-              'input[name="cameraOpposition"]:checked'
+              'input[name="safetyIssues"]:checked'
+            );
+
+          const selectedCameraAgreement =
+            document.querySelector(
+              'input[name="cameraAgreement"]:checked'
             );
 
           const payload = {
@@ -1119,12 +1192,6 @@
                 .value
                 .trim(),
 
-            unitNumber:
-              document
-                .getElementById("unitNumber")
-                .value
-                .trim(),
-
             vehicleYear:
               document
                 .getElementById("vehicleYear")
@@ -1143,14 +1210,22 @@
                 .value
                 .trim(),
 
-            handbook:
-              selectedHandbook
-                ? selectedHandbook.value
+            hartfordAccidentKit:
+              selectedHartfordAccidentKit
+                ? selectedHartfordAccidentKit.value
                 : "",
 
-            cameraOpposition:
-              selectedCameraOpposition
-                ? selectedCameraOpposition.value
+            safetyIssues:
+              selectedSafetyIssues
+                ? selectedSafetyIssues.value
+                : "",
+
+            safetyIssuesDetails:
+              safetyIssuesDetails.value.trim(),
+
+            cameraAgreement:
+              selectedCameraAgreement
+                ? selectedCameraAgreement.value
                 : "",
 
             notes:
@@ -1198,7 +1273,8 @@
 
           statusMessage.style.display = "block";
           button.disabled = false;
-          button.textContent = "Review draft submission →";
+          button.textContent =
+            "Review draft submission →";
 
           statusMessage.scrollIntoView({
             behavior: "smooth",
