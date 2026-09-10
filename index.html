@@ -19,13 +19,9 @@
       --white: #ffffff;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -67,10 +63,7 @@
       letter-spacing: 0.14em;
     }
 
-    .red,
-    .required {
-      color: var(--red);
-    }
+    .red, .required { color: var(--red); }
 
     .small {
       color: var(--gray);
@@ -91,9 +84,7 @@
       line-height: 1.45;
     }
 
-    .intro {
-      padding: 38px 0 36px;
-    }
+    .intro { padding: 38px 0 36px; }
 
     .eyebrow {
       color: var(--red);
@@ -111,9 +102,7 @@
       letter-spacing: -0.035em;
     }
 
-    .intro h1 span {
-      color: var(--red);
-    }
+    .intro h1 span { color: var(--red); }
 
     .intro p {
       max-width: 780px;
@@ -168,16 +157,14 @@
       gap: 8px;
     }
 
-    .field label,
-    legend {
+    .field label, legend {
       color: var(--ink);
       font-size: 12px;
       font-weight: 800;
       line-height: 1.45;
     }
 
-    .field input,
-    .field textarea {
+    .field input, .field textarea {
       width: 100%;
       border: 1px solid #aeb6bc;
       border-radius: 4px;
@@ -185,9 +172,7 @@
       color: var(--ink);
       font: inherit;
       padding: 14px;
-      transition:
-        border-color 150ms ease,
-        box-shadow 150ms ease;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
     }
 
     .field input::placeholder,
@@ -216,8 +201,7 @@
       margin: -8px 0 28px;
     }
 
-    #safetyIssuesDetailsField[hidden],
-    #reimbursementFollowUp[hidden] {
+    #safetyIssuesDetailsField[hidden] {
       display: none;
     }
 
@@ -318,9 +302,7 @@
       border: 0;
     }
 
-    legend {
-      margin-bottom: 14px;
-    }
+    legend { margin-bottom: 14px; }
 
     .choices {
       display: flex;
@@ -373,9 +355,7 @@
       box-shadow: 0 4px 10px rgba(118, 11, 17, 0.16);
     }
 
-    .button:hover {
-      background: var(--red-dark);
-    }
+    .button:hover { background: var(--red-dark); }
 
     .button:disabled {
       cursor: wait;
@@ -447,24 +427,18 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .photo {
-        min-height: 300px;
-      }
+      .photo { min-height: 300px; }
     }
 
     @media (max-width: 620px) {
-      body::before {
-        height: 5px;
-      }
+      body::before { height: 5px; }
 
       .shell {
         padding: 0 18px 30px;
         box-shadow: none;
       }
 
-      .bar {
-        min-height: 70px;
-      }
+      .bar { min-height: 70px; }
 
       .bar .small {
         max-width: 155px;
@@ -472,26 +446,16 @@
         line-height: 1.4;
       }
 
-      .intro {
-        padding: 30px 0 28px;
-      }
-
-      .intro p {
-        font-size: 14px;
-      }
-
-      .section {
-        padding: 28px 0;
-      }
+      .intro { padding: 30px 0 28px; }
+      .intro p { font-size: 14px; }
+      .section { padding: 28px 0; }
 
       .vehicle-grid,
       .photos {
         grid-template-columns: 1fr;
       }
 
-      .photo {
-        min-height: 270px;
-      }
+      .photo { min-height: 270px; }
 
       .choices {
         align-items: flex-start;
@@ -504,9 +468,7 @@
         align-items: stretch;
       }
 
-      .button {
-        width: 100%;
-      }
+      .button { width: 100%; }
 
       footer {
         align-items: flex-start;
@@ -519,13 +481,8 @@
 <body>
   <main class="shell">
     <header class="bar">
-      <div class="brand">
-        DEXTER<span class="red">.</span>
-      </div>
-
-      <div class="small">
-        Light fleet · vehicle survey
-      </div>
+      <div class="brand">DEXTER<span class="red">.</span></div>
+      <div class="small">Light fleet · vehicle survey</div>
     </header>
 
     <div class="draft-banner">
@@ -534,12 +491,7 @@
 
     <section class="intro">
       <div class="eyebrow">Light fleet compliance check</div>
-
-      <h1>
-        Vehicle identification and
-        <span>required photos.</span>
-      </h1>
-
+      <h1>Vehicle identification and <span>required photos.</span></h1>
       <p>
         Complete the vehicle information below and upload three clear photos:
         the VIN, license plate, and complete vehicle.
@@ -550,7 +502,6 @@
       <section class="section">
         <div class="section-heading">
           <div class="section-number">01</div>
-
           <div>
             <h2>Your information</h2>
             <p>Tell us who is completing this vehicle update.</p>
@@ -561,7 +512,6 @@
           <label for="driverName">
             Driver name <span class="required">*</span>
           </label>
-
           <input
             id="driverName"
             name="driverName"
@@ -576,22 +526,17 @@
       <section class="section">
         <div class="section-heading">
           <div class="section-number">02</div>
-
           <div>
             <h2>Vehicle information</h2>
-            <p>
-              These details identify the assigned Light Fleet vehicle and its mileage.
-            </p>
+            <p>These details identify the assigned Light Fleet vehicle and its mileage.</p>
           </div>
         </div>
 
         <div class="vehicle-grid">
           <div class="field">
             <label for="vehicleLocation">
-              Vehicle assigned location
-              <span class="required">*</span>
+              Vehicle assigned location <span class="required">*</span>
             </label>
-
             <input
               id="vehicleLocation"
               name="vehicleLocation"
@@ -605,7 +550,6 @@
             <label for="licensePlate">
               License plate <span class="required">*</span>
             </label>
-
             <input
               id="licensePlate"
               name="licensePlate"
@@ -620,7 +564,6 @@
             <label for="vinLastFour">
               Last four of VIN <span class="required">*</span>
             </label>
-
             <input
               id="vinLastFour"
               name="vinLastFour"
@@ -636,10 +579,8 @@
 
           <div class="field">
             <label for="odometer">
-              Unit odometer (miles)
-              <span class="required">*</span>
+              Unit odometer (miles) <span class="required">*</span>
             </label>
-
             <input
               id="odometer"
               name="odometer"
@@ -656,7 +597,6 @@
             <label for="vehicleYear">
               Vehicle year <span class="required">*</span>
             </label>
-
             <input
               id="vehicleYear"
               name="vehicleYear"
@@ -674,7 +614,6 @@
             <label for="vehicleMake">
               Vehicle make <span class="required">*</span>
             </label>
-
             <input
               id="vehicleMake"
               name="vehicleMake"
@@ -688,7 +627,6 @@
             <label for="vehicleModel">
               Vehicle model <span class="required">*</span>
             </label>
-
             <input
               id="vehicleModel"
               name="vehicleModel"
@@ -703,18 +641,12 @@
       <section class="section">
         <div class="section-heading">
           <div class="section-number">03</div>
-
           <div>
-            <h2>
-              Required vehicle photos
-              <span class="required">*</span>
-            </h2>
-
+            <h2>Required vehicle photos <span class="required">*</span></h2>
             <p>
               <strong>
-                Make sure the VIN and license plate are readable and the
-                complete vehicle is visible. Take all photos while the vehicle
-                is safely parked.
+                Make sure the VIN and license plate are readable and the complete
+                vehicle is visible. Take all photos while the vehicle is safely parked.
               </strong>
             </p>
           </div>
@@ -726,12 +658,10 @@
               <div class="camera-icon">▣</div>
               Take a clear photo of the full VIN label or plate
             </div>
-
             <div class="photo-caption">
               <span>VIN</span>
               <span class="photo-action">Add photo</span>
             </div>
-
             <input
               id="vinPhoto"
               name="vinPhoto"
@@ -746,12 +676,10 @@
               <div class="camera-icon">▣</div>
               Take a close, straight-on photo with every character readable
             </div>
-
             <div class="photo-caption">
               <span>License plate</span>
               <span class="photo-action">Add photo</span>
             </div>
-
             <input
               id="licensePlatePhoto"
               name="licensePlatePhoto"
@@ -766,12 +694,10 @@
               <div class="camera-icon">▣</div>
               Show the entire vehicle clearly in one photo
             </div>
-
             <div class="photo-caption">
               <span>Complete vehicle</span>
               <span class="photo-action">Add photo</span>
             </div>
-
             <input
               id="vehiclePhoto"
               name="vehiclePhoto"
@@ -786,7 +712,6 @@
       <section class="section">
         <div class="section-heading">
           <div class="section-number">04</div>
-
           <div>
             <h2>Almost done</h2>
             <p>Answer the final questions and add any helpful comments.</p>
@@ -798,7 +723,6 @@
             Do you have a current copy of the Hartford accident kit?
             <span class="required">*</span>
           </legend>
-
           <div class="choices">
             <label class="choice">
               <input
@@ -809,7 +733,6 @@
               >
               Yes
             </label>
-
             <label class="choice">
               <input
                 type="radio"
@@ -818,7 +741,6 @@
               >
               No
             </label>
-
             <label class="choice">
               <input
                 type="radio"
@@ -835,7 +757,6 @@
             Are there any safety or mechanical issues with your vehicle we should know about?
             <span class="required">*</span>
           </legend>
-
           <div class="choices">
             <label class="choice">
               <input
@@ -846,7 +767,6 @@
               >
               Yes
             </label>
-
             <label class="choice">
               <input
                 type="radio"
@@ -858,16 +778,11 @@
           </div>
         </fieldset>
 
-        <div
-          class="field"
-          id="safetyIssuesDetailsField"
-          hidden
-        >
+        <div class="field" id="safetyIssuesDetailsField" hidden>
           <label for="safetyIssuesDetails">
             Please describe the safety or mechanical issue(s)
             <span class="required">*</span>
           </label>
-
           <textarea
             id="safetyIssuesDetails"
             name="safetyIssuesDetails"
@@ -878,10 +793,10 @@
 
         <fieldset>
           <legend>
-            Would you agree to have front-facing Samsara cameras in your Dexter company vehicle to increase safety and protect the company from liability?
+            Would you agree to have front-facing Samsara cameras in your Dexter
+            company vehicle to increase safety and protect the company from liability?
             <span class="required">*</span>
           </legend>
-
           <div class="choices">
             <label class="choice">
               <input
@@ -892,7 +807,6 @@
               >
               Yes
             </label>
-
             <label class="choice">
               <input
                 type="radio"
@@ -901,7 +815,6 @@
               >
               No
             </label>
-
             <label class="choice">
               <input
                 type="radio"
@@ -913,25 +826,22 @@
           </div>
         </fieldset>
 
-        <fieldset
-          id="reimbursementFollowUp"
-          hidden
-        >
+        <fieldset>
           <legend>
-            Would you be open to a company-paid vehicle allowance through corporate vehicle reimbursement software and managed services?
+            Would you be open to a company-paid vehicle allowance through corporate
+            vehicle reimbursement software and managed services?
             <span class="required">*</span>
           </legend>
-
           <div class="choices">
             <label class="choice">
               <input
                 type="radio"
                 name="reimbursementAllowance"
                 value="Yes"
+                required
               >
               Yes
             </label>
-
             <label class="choice">
               <input
                 type="radio"
@@ -940,7 +850,6 @@
               >
               No
             </label>
-
             <label class="choice">
               <input
                 type="radio"
@@ -957,7 +866,6 @@
             Anything else should we know?
             <span class="small">Optional</span>
           </label>
-
           <textarea
             id="notes"
             name="notes"
@@ -971,12 +879,7 @@
         <p class="required-note">
           <span class="required">*</span> Required fields
         </p>
-
-        <button
-          id="submitButton"
-          class="button"
-          type="submit"
-        >
+        <button id="submitButton" class="button" type="submit">
           Review draft submission →
         </button>
       </div>
@@ -992,9 +895,7 @@
     <section id="complete" class="complete">
       <div class="complete-check">✓</div>
       <div class="eyebrow">Draft validated</div>
-
       <h2>Ready to connect.</h2>
-
       <p>
         All required Light Fleet information and three photos were collected
         successfully in this browser.
@@ -1023,7 +924,6 @@
 
         image.onerror = () => {
           URL.revokeObjectURL(objectUrl);
-
           reject(
             new Error(
               "One selected photo could not be opened. Please choose a JPG, PNG, or a new camera photo."
@@ -1044,34 +944,23 @@
 
       const image = await loadImage(file);
       const maximumDimension = 1920;
-
       const scale = Math.min(
         1,
-        maximumDimension /
-          Math.max(image.naturalWidth, image.naturalHeight)
+        maximumDimension / Math.max(image.naturalWidth, image.naturalHeight)
       );
-
       const canvas = document.createElement("canvas");
 
       canvas.width = Math.max(
         1,
         Math.round(image.naturalWidth * scale)
       );
-
       canvas.height = Math.max(
         1,
         Math.round(image.naturalHeight * scale)
       );
 
       const context = canvas.getContext("2d");
-
-      context.drawImage(
-        image,
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
       return {
         fileName: outputName,
@@ -1086,9 +975,7 @@
         const photoBox = event.target.closest(".photo");
         const file = event.target.files[0];
 
-        if (!file) {
-          return;
-        }
+        if (!file) return;
 
         const existingPreview =
           photoBox.querySelector(".photo-preview");
@@ -1099,7 +986,6 @@
         }
 
         const preview = document.createElement("img");
-
         preview.className = "photo-preview";
         preview.src = URL.createObjectURL(file);
         preview.alt = "Selected Light Fleet photo preview";
@@ -1146,36 +1032,6 @@
         });
       });
 
-    const reimbursementFollowUp =
-      document.getElementById("reimbursementFollowUp");
-
-    const reimbursementInputs = Array.from(
-      document.querySelectorAll(
-        'input[name="reimbursementAllowance"]'
-      )
-    );
-
-    document
-      .querySelectorAll('input[name="cameraAgreement"]')
-      .forEach(input => {
-        input.addEventListener("change", event => {
-          const followUpIsRequired =
-            event.target.value === "No";
-
-          reimbursementFollowUp.hidden =
-            !followUpIsRequired;
-
-          reimbursementInputs[0].required =
-            followUpIsRequired;
-
-          if (!followUpIsRequired) {
-            reimbursementInputs.forEach(option => {
-              option.checked = false;
-            });
-          }
-        });
-      });
-
     document
       .getElementById("survey")
       .addEventListener("submit", async event => {
@@ -1184,7 +1040,6 @@
         const form = event.currentTarget;
         const button =
           document.getElementById("submitButton");
-
         const statusMessage =
           document.getElementById("statusMessage");
 
@@ -1235,85 +1090,46 @@
 
           const payload = {
             surveyType: "lightFleet",
-
             driverName:
-              document
-                .getElementById("driverName")
-                .value
-                .trim(),
-
+              document.getElementById("driverName").value.trim(),
             vehicleLocation:
-              document
-                .getElementById("vehicleLocation")
-                .value
-                .trim(),
-
+              document.getElementById("vehicleLocation").value.trim(),
             licensePlate:
               document
                 .getElementById("licensePlate")
                 .value
                 .trim()
                 .toUpperCase(),
-
             vinLastFour:
-              document
-                .getElementById("vinLastFour")
-                .value
-                .trim(),
-
+              document.getElementById("vinLastFour").value.trim(),
             odometer:
-              document
-                .getElementById("odometer")
-                .value
-                .trim(),
-
+              document.getElementById("odometer").value.trim(),
             vehicleYear:
-              document
-                .getElementById("vehicleYear")
-                .value
-                .trim(),
-
+              document.getElementById("vehicleYear").value.trim(),
             vehicleMake:
-              document
-                .getElementById("vehicleMake")
-                .value
-                .trim(),
-
+              document.getElementById("vehicleMake").value.trim(),
             vehicleModel:
-              document
-                .getElementById("vehicleModel")
-                .value
-                .trim(),
-
+              document.getElementById("vehicleModel").value.trim(),
             hartfordAccidentKit:
               selectedHartfordAccidentKit
                 ? selectedHartfordAccidentKit.value
                 : "",
-
             safetyIssues:
               selectedSafetyIssues
                 ? selectedSafetyIssues.value
                 : "",
-
             safetyIssuesDetails:
               safetyIssuesDetails.value.trim(),
-
             cameraAgreement:
               selectedCameraAgreement
                 ? selectedCameraAgreement.value
                 : "",
-
             reimbursementAllowance:
               selectedReimbursementAllowance
                 ? selectedReimbursementAllowance.value
                 : "",
-
             notes:
-              document
-                .getElementById("notes")
-                .value
-                .trim(),
-
+              document.getElementById("notes").value.trim(),
             vinPhoto,
             licensePlatePhoto,
             vehiclePhoto
@@ -1338,7 +1154,6 @@
           }
 
           form.style.display = "none";
-
           document.getElementById("complete").style.display =
             "block";
 
@@ -1353,8 +1168,7 @@
 
           statusMessage.style.display = "block";
           button.disabled = false;
-          button.textContent =
-            "Review draft submission →";
+          button.textContent = "Review draft submission →";
 
           statusMessage.scrollIntoView({
             behavior: "smooth",
