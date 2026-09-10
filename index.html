@@ -216,7 +216,8 @@
       margin: -8px 0 28px;
     }
 
-    #safetyIssuesDetailsField[hidden] {
+    #safetyIssuesDetailsField[hidden],
+    #reimbursementFollowUp[hidden] {
       display: none;
     }
 
@@ -877,7 +878,7 @@
 
         <fieldset>
           <legend>
-            Do you agree to have front-facing Samsara cameras in your company vehicle?
+            Would you agree to have front-facing Samsara cameras in your Dexter company vehicle to increase safety and protect the company from liability?
             <span class="required">*</span>
           </legend>
 
@@ -905,6 +906,45 @@
               <input
                 type="radio"
                 name="cameraAgreement"
+                value="Need more information"
+              >
+              I need more information
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset
+          id="reimbursementFollowUp"
+          hidden
+        >
+          <legend>
+            Would you be open to a company-paid vehicle allowance through corporate vehicle reimbursement software and managed services?
+            <span class="required">*</span>
+          </legend>
+
+          <div class="choices">
+            <label class="choice">
+              <input
+                type="radio"
+                name="reimbursementAllowance"
+                value="Yes"
+              >
+              Yes
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="reimbursementAllowance"
+                value="No"
+              >
+              No
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="reimbursementAllowance"
                 value="Need more information"
               >
               I need more information
@@ -1106,6 +1146,36 @@
         });
       });
 
+    const reimbursementFollowUp =
+      document.getElementById("reimbursementFollowUp");
+
+    const reimbursementInputs = Array.from(
+      document.querySelectorAll(
+        'input[name="reimbursementAllowance"]'
+      )
+    );
+
+    document
+      .querySelectorAll('input[name="cameraAgreement"]')
+      .forEach(input => {
+        input.addEventListener("change", event => {
+          const followUpIsRequired =
+            event.target.value === "No";
+
+          reimbursementFollowUp.hidden =
+            !followUpIsRequired;
+
+          reimbursementInputs[0].required =
+            followUpIsRequired;
+
+          if (!followUpIsRequired) {
+            reimbursementInputs.forEach(option => {
+              option.checked = false;
+            });
+          }
+        });
+      });
+
     document
       .getElementById("survey")
       .addEventListener("submit", async event => {
@@ -1156,6 +1226,11 @@
           const selectedCameraAgreement =
             document.querySelector(
               'input[name="cameraAgreement"]:checked'
+            );
+
+          const selectedReimbursementAllowance =
+            document.querySelector(
+              'input[name="reimbursementAllowance"]:checked'
             );
 
           const payload = {
@@ -1226,6 +1301,11 @@
             cameraAgreement:
               selectedCameraAgreement
                 ? selectedCameraAgreement.value
+                : "",
+
+            reimbursementAllowance:
+              selectedReimbursementAllowance
+                ? selectedReimbursementAllowance.value
                 : "",
 
             notes:
