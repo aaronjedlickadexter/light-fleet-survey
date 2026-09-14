@@ -63,7 +63,10 @@
       letter-spacing: 0.14em;
     }
 
-    .red, .required { color: var(--red); }
+    .red,
+    .required {
+      color: var(--red);
+    }
 
     .small {
       color: var(--gray);
@@ -73,18 +76,9 @@
       text-transform: uppercase;
     }
 
-    .draft-banner {
-      margin: 22px 0 0;
-      border: 1px solid #cc858a;
-      border-radius: 4px;
-      background: var(--red-soft);
-      color: var(--red-dark);
-      padding: 12px 15px;
-      font-weight: 700;
-      line-height: 1.45;
+    .intro {
+      padding: 38px 0 36px;
     }
-
-    .intro { padding: 38px 0 36px; }
 
     .eyebrow {
       color: var(--red);
@@ -102,7 +96,9 @@
       letter-spacing: -0.035em;
     }
 
-    .intro h1 span { color: var(--red); }
+    .intro h1 span {
+      color: var(--red);
+    }
 
     .intro p {
       max-width: 780px;
@@ -157,14 +153,16 @@
       gap: 8px;
     }
 
-    .field label, legend {
+    .field label,
+    legend {
       color: var(--ink);
       font-size: 12px;
       font-weight: 800;
       line-height: 1.45;
     }
 
-    .field input, .field textarea {
+    .field input,
+    .field textarea {
       width: 100%;
       border: 1px solid #aeb6bc;
       border-radius: 4px;
@@ -302,7 +300,9 @@
       border: 0;
     }
 
-    legend { margin-bottom: 14px; }
+    legend {
+      margin-bottom: 14px;
+    }
 
     .choices {
       display: flex;
@@ -355,7 +355,9 @@
       box-shadow: 0 4px 10px rgba(118, 11, 17, 0.16);
     }
 
-    .button:hover { background: var(--red-dark); }
+    .button:hover {
+      background: var(--red-dark);
+    }
 
     .button:disabled {
       cursor: wait;
@@ -427,18 +429,24 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .photo { min-height: 300px; }
+      .photo {
+        min-height: 300px;
+      }
     }
 
     @media (max-width: 620px) {
-      body::before { height: 5px; }
+      body::before {
+        height: 5px;
+      }
 
       .shell {
         padding: 0 18px 30px;
         box-shadow: none;
       }
 
-      .bar { min-height: 70px; }
+      .bar {
+        min-height: 70px;
+      }
 
       .bar .small {
         max-width: 155px;
@@ -446,16 +454,26 @@
         line-height: 1.4;
       }
 
-      .intro { padding: 30px 0 28px; }
-      .intro p { font-size: 14px; }
-      .section { padding: 28px 0; }
+      .intro {
+        padding: 30px 0 28px;
+      }
+
+      .intro p {
+        font-size: 14px;
+      }
+
+      .section {
+        padding: 28px 0;
+      }
 
       .vehicle-grid,
       .photos {
         grid-template-columns: 1fr;
       }
 
-      .photo { min-height: 270px; }
+      .photo {
+        min-height: 270px;
+      }
 
       .choices {
         align-items: flex-start;
@@ -468,7 +486,9 @@
         align-items: stretch;
       }
 
-      .button { width: 100%; }
+      .button {
+        width: 100%;
+      }
 
       footer {
         align-items: flex-start;
@@ -484,10 +504,6 @@
       <div class="brand">DEXTER<span class="red">.</span></div>
       <div class="small">Light fleet · vehicle survey</div>
     </header>
-
-    <div class="draft-banner">
-      Draft for review — the Light Fleet Power Automate connection is not active yet.
-    </div>
 
     <section class="intro">
       <div class="eyebrow">Light fleet compliance check</div>
@@ -733,6 +749,7 @@
               >
               Yes
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -741,6 +758,7 @@
               >
               No
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -767,6 +785,7 @@
               >
               Yes
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -807,6 +826,7 @@
               >
               Yes
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -815,6 +835,7 @@
               >
               No
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -842,6 +863,7 @@
               >
               Yes
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -850,6 +872,7 @@
               >
               No
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -880,7 +903,7 @@
           <span class="required">*</span> Required fields
         </p>
         <button id="submitButton" class="button" type="submit">
-          Review draft submission →
+          Submit survey →
         </button>
       </div>
 
@@ -894,11 +917,10 @@
 
     <section id="complete" class="complete">
       <div class="complete-check">✓</div>
-      <div class="eyebrow">Draft validated</div>
-      <h2>Ready to connect.</h2>
+      <div class="eyebrow">Survey received</div>
+      <h2>Thank you.</h2>
       <p>
-        All required Light Fleet information and three photos were collected
-        successfully in this browser.
+        Your Light Fleet vehicle information and photos have been submitted successfully.
       </p>
     </section>
 
@@ -909,8 +931,8 @@
   </main>
 
   <script>
-    // This stays blank until the Light Fleet relay and Power Automate flow are ready.
-    const FLOW_URL = "";
+    const FLOW_URL =
+      "https://light-fleet-survey-relay.aaron-jedlicka.workers.dev";
 
     function loadImage(file) {
       return new Promise((resolve, reject) => {
@@ -946,21 +968,32 @@
       const maximumDimension = 1920;
       const scale = Math.min(
         1,
-        maximumDimension / Math.max(image.naturalWidth, image.naturalHeight)
+        maximumDimension / Math.max(
+          image.naturalWidth,
+          image.naturalHeight
+        )
       );
+
       const canvas = document.createElement("canvas");
 
       canvas.width = Math.max(
         1,
         Math.round(image.naturalWidth * scale)
       );
+
       canvas.height = Math.max(
         1,
         Math.round(image.naturalHeight * scale)
       );
 
       const context = canvas.getContext("2d");
-      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      context.drawImage(
+        image,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
 
       return {
         fileName: outputName,
@@ -975,7 +1008,9 @@
         const photoBox = event.target.closest(".photo");
         const file = event.target.files[0];
 
-        if (!file) return;
+        if (!file) {
+          return;
+        }
 
         const existingPreview =
           photoBox.querySelector(".photo-preview");
@@ -1090,70 +1125,108 @@
 
           const payload = {
             surveyType: "lightFleet",
+
             driverName:
-              document.getElementById("driverName").value.trim(),
+              document
+                .getElementById("driverName")
+                .value
+                .trim(),
+
             vehicleLocation:
-              document.getElementById("vehicleLocation").value.trim(),
+              document
+                .getElementById("vehicleLocation")
+                .value
+                .trim(),
+
             licensePlate:
               document
                 .getElementById("licensePlate")
                 .value
                 .trim()
                 .toUpperCase(),
+
             vinLastFour:
-              document.getElementById("vinLastFour").value.trim(),
+              document
+                .getElementById("vinLastFour")
+                .value
+                .trim(),
+
             odometer:
-              document.getElementById("odometer").value.trim(),
+              document
+                .getElementById("odometer")
+                .value
+                .trim(),
+
             vehicleYear:
-              document.getElementById("vehicleYear").value.trim(),
+              document
+                .getElementById("vehicleYear")
+                .value
+                .trim(),
+
             vehicleMake:
-              document.getElementById("vehicleMake").value.trim(),
+              document
+                .getElementById("vehicleMake")
+                .value
+                .trim(),
+
             vehicleModel:
-              document.getElementById("vehicleModel").value.trim(),
+              document
+                .getElementById("vehicleModel")
+                .value
+                .trim(),
+
             hartfordAccidentKit:
               selectedHartfordAccidentKit
                 ? selectedHartfordAccidentKit.value
                 : "",
+
             safetyIssues:
               selectedSafetyIssues
                 ? selectedSafetyIssues.value
                 : "",
+
             safetyIssuesDetails:
               safetyIssuesDetails.value.trim(),
+
             cameraAgreement:
               selectedCameraAgreement
                 ? selectedCameraAgreement.value
                 : "",
+
             reimbursementAllowance:
               selectedReimbursementAllowance
                 ? selectedReimbursementAllowance.value
                 : "",
+
             notes:
-              document.getElementById("notes").value.trim(),
+              document
+                .getElementById("notes")
+                .value
+                .trim(),
+
             vinPhoto,
             licensePlatePhoto,
             vehiclePhoto
           };
 
-          if (FLOW_URL) {
-            button.textContent = "Submitting…";
+          button.textContent = "Submitting…";
 
-            const response = await fetch(FLOW_URL, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify(payload)
-            });
+          const response = await fetch(FLOW_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
 
-            if (!response.ok) {
-              throw new Error(
-                "Submission failed. Please check the information and try again."
-              );
-            }
+          if (!response.ok) {
+            throw new Error(
+              "Submission failed. Please check the information and try again."
+            );
           }
 
           form.style.display = "none";
+
           document.getElementById("complete").style.display =
             "block";
 
@@ -1164,11 +1237,11 @@
         } catch (error) {
           statusMessage.textContent =
             error.message ||
-            "The draft could not be validated. Please try again.";
+            "The survey could not be submitted. Please try again.";
 
           statusMessage.style.display = "block";
           button.disabled = false;
-          button.textContent = "Review draft submission →";
+          button.textContent = "Submit survey →";
 
           statusMessage.scrollIntoView({
             behavior: "smooth",
