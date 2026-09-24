@@ -365,15 +365,18 @@
     @media(max-width:620px) {
       .shell { padding:0 18px 30px; }
       .grid,.photos { grid-template-columns:1fr; }
+
       .choices {
         flex-direction:column;
         align-items:flex-start;
         gap:14px;
       }
+
       .submit-row {
         flex-direction:column;
         align-items:stretch;
       }
+
       button { width:100%; }
     }
   </style>
@@ -556,6 +559,7 @@
             Do you have a current copy of the Hartford accident kit?
             <span class="required">*</span>
           </legend>
+
           <div class="choices">
             <label class="choice">
               <input
@@ -565,6 +569,7 @@
                 required
               > Yes
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -572,6 +577,7 @@
                 value="No"
               > No
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -587,6 +593,7 @@
             Are there any safety or mechanical issues with your vehicle?
             <span class="required">*</span>
           </legend>
+
           <div class="choices">
             <label class="choice">
               <input
@@ -596,6 +603,7 @@
                 required
               > Yes
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -623,6 +631,7 @@
             and reduce liability for both you and Dexter?
             <span class="required">*</span>
           </legend>
+
           <div class="choices">
             <label class="choice">
               <input
@@ -632,6 +641,7 @@
                 required
               > Yes
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -639,6 +649,7 @@
                 value="No"
               > No
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -658,6 +669,7 @@
             business use?
             <span class="required">*</span>
           </legend>
+
           <div class="choices">
             <label class="choice">
               <input
@@ -667,6 +679,7 @@
                 required
               > Yes
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -674,6 +687,7 @@
                 value="No"
               > No
             </label>
+
             <label class="choice">
               <input
                 type="radio"
@@ -715,7 +729,7 @@
 
   <script>
     const FLOW_URL =
-      "https://light-fleet-survey-relay.aaron-jedlicka.workers.dev";
+      "https://defaulte2f282b80bf64ffcaa931b7c3fd3e5.7d.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/24/workflows/3f344af41ea2400fafedfb97e1de10d3/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=6urLAwnoKth2FkT9er6duhyh3iZD81ejFRtr9fQqrh4";
 
     const MAX_PHOTO_BYTES = 900 * 1024;
     const MAX_PAYLOAD_BYTES = 8 * 1024 * 1024;
@@ -989,7 +1003,7 @@
           response = await fetch(FLOW_URL, {
             method: "POST",
             headers: {
-              "Content-Type": "text/plain;charset=UTF-8"
+              "Content-Type": "application/json"
             },
             body,
             signal: controller.signal
@@ -1004,7 +1018,7 @@
         try {
           result = text ? JSON.parse(text) : {};
         } catch {
-          result = { message: text };
+          result = { message:text };
         }
 
         if (!response.ok) {
@@ -1018,8 +1032,8 @@
         get("complete").style.display = "block";
 
         window.scrollTo({
-          top: 0,
-          behavior: "smooth"
+          top:0,
+          behavior:"smooth"
         });
       } catch (error) {
         let message =
@@ -1040,8 +1054,8 @@
         button.textContent = "Submit survey →";
 
         status.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
+          behavior:"smooth",
+          block:"center"
         });
       }
     });
